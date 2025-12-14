@@ -50,5 +50,6 @@ And(`I click on the submit button`, () => {
 
 Then(`I should see the message {string}`, (message) => {
     cy.get(loginElements.ErrorMessage).should('be.visible').and('contain', message)
+    cy.log("edit1")
     // [Then] Describes the expected outcome or result of the scenario.
 });

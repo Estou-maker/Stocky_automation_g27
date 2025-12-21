@@ -5,7 +5,7 @@ module.exports = defineConfig({
   viewportHeight: 1080,
   viewportWidth:  1920,
   env:{
-    USER_EMAIL: 'employee1',
+    USER_EMAIL: 'EmployeeTestAuto',
     USER_PASSWORD: '123',
   },
   

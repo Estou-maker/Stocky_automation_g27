@@ -18,7 +18,7 @@ When(`I enter valid credentials`, () => {
 });
 
 Then(`I should be redirected to the dashboard`, () => {
-    cy.get(loginElements.DashboardContainer).should('be.visible').should('contain', 'Client Dashboard')
+    cy.get(loginElements.DashboardContainer).should('be.visible').should('contain', 'Employee Dashboard')
     cy.screenshot()
     // [Then] Describes the expected outcome or result of the scenario.
 });

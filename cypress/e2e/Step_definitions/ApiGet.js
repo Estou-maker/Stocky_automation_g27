@@ -19,6 +19,8 @@ When(`I send a GET request to the Api endpoint`, () => {
             expect(response.body).to.not.be.empty
             expect(response.body).to.be.an('array')
         }) 
+
+
     // [When] Describes the action or event that triggers the scenario.
 });
 
@@ -26,3 +28,4 @@ Then(`The response status code should be {int}`, (arg0) => {
     cy.log('test has passed')
     // [Then] Describes the expected outcome or result of the scenario.
 });
+

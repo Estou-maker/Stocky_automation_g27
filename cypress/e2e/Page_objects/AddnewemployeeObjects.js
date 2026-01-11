@@ -13,8 +13,8 @@ const EmployeeElements = {
     Categories_listbox: 'ul[aria-label="Option List"]',
     Select_contract_type_trigger: 'span[id="contractType"]',
     btn_submit_newemployee: 'p-button[data-testid="btn-submit"]',
-    Contract_table: 'div[data-pc-section="tablecontainer"]'
-
+    Contract_table: 'div[data-pc-section="tablecontainer"]',
+    Contracts_listbox: 'div[data-pc-section="listcontainer"]',
 
 }
 

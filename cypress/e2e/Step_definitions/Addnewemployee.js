@@ -25,6 +25,26 @@ Then(`I should be able to add a new employee with valid details`, () => {
     cy.get(EmployeeElements.username_input).type(username)
     cy.get(EmployeeElements.country_code_input).type(countrycode)
     cy.get(EmployeeElements.phone_number_input).type(phonenumber)
+    cy.get(EmployeeElements.job_title_input).type('QA Engineer')
 
+    let employeeCategoryValue
+    let contractTypeValue
+
+    cy.get(EmployeeElements.select_employment_category_trigger).click()
+    cy.get(EmployeeElements.Categories_listbox).find('li').then(options => {
+        const randomindex = Math.floor(Math.random() * options.length)
+        employeeCategoryValue = options[randomindex].innerText
+        cy.wrap(options[randomindex]).click()
+    })
+
+    cy.get(EmployeeElements.Select_contract_type_trigger).click()
+    cy.get(EmployeeElements.Contracts_listbox).find('li').then(options => {
+        const randomindex = Math.floor(Math.random() * options.length)
+        contractTypeValue = options[randomindex].innerText
+        cy.wrap(options[randomindex]).click()
+    })
+
+
+    cy.get(EmployeeElements.btn_submit_newemployee).should('be.visible').click()
     // [Then] Describes the expected outcome or result of the scenario.
 });

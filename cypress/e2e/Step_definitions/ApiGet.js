@@ -18,6 +18,21 @@ When(`I send a GET request to the Api endpoint`, () => {
             expect(response.status).to.eq(200)
             expect(response.body).to.not.be.empty
             expect(response.body).to.be.an('array')
+
+            const colors = response.body.map(item => item.data?.color || item.data?.Color || item.data?.['Strap Colour'])
+                .filter(Boolean)
+            
+            cy.log('Extracted Colors:', colors)
+            colors.forEach((color, index) => {
+                cy.log(`Color ${index + 1}: ${color}`)
+            })
+
+            const names = response.body.map(item => item.name)
+                .filter(Boolean)
+                cy.log('Extracted Names:', names)
+                names.forEach((name, index)=> {
+                    cy.log(`Name ${index + 1}: ${name}`)
+                })
         }) 
 
 

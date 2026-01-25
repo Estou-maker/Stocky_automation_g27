@@ -20,7 +20,7 @@ Then(`I should be able to add a new product with valid details`, () => {
     const Reference = `Ref_${Math.random().toString(36).replace(/[^a-z]+/g, '').substring(0, 4)}`
     const Marque = carBrands[Math.floor(Math.random() * carBrands.length)]
     const price = (Math.random() * 1000).toFixed(2);
-    const TVA = (Math.random() * 100).toFixed(2) + '%'
+    const TVA = (Math.random() * 100).toFixed(2);
 
     let unitTypeValue
     let categorytypevalue
@@ -59,6 +59,12 @@ Then(`I should be able to add a new product with valid details`, () => {
     cy.wait('@AddnewProduct').then((interception)=> {
         expect(interception.response.statusCode).to.eq(201)
         expect(interception.response.body).to.have.property('title').and.to.eq(Titre)
+        expect(interception.response.body).to.have.property('description').and.to.eq(description)
+        expect(interception.response.body).to.have.property('ref').and.to.eq(Reference)
+        expect(interception.response.body).to.have.property('brand').and.to.eq(Marque)
+        expect(interception.response.body).to.have.property('tva')
+        expect(interception.response.body).to.have.property('price')
+
     })
 
     // [Then] Describes the expected outcome or result of the scenario.
